@@ -18,6 +18,9 @@
     monokai-theme
     hungry-delete
     smartparens
+    expand-region
+    swiper
+    aggressive-indent    
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -54,6 +57,8 @@
 
 (show-paren-mode t)
 
+(global-auto-revert-mode t)
+
 (require 'recentf)
 (recentf-mode 1)
 
@@ -64,6 +69,11 @@
 
 (require 'smartparens-config)
 (smartparens-global-mode t)
+
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+
+(global-aggressive-indent-mode 1)
 
 ;; ------------------------------------------
 ;; function
@@ -80,6 +90,11 @@
 
 ;; press <f2> to open <init.el> file
 (global-set-key (kbd "<f2>") 'open-init-file)
+
+;;expand-region key-binding
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 
 ;; ------------------------------------------
 ;; settings
