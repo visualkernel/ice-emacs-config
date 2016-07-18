@@ -99,10 +99,10 @@
 ;; ------------------------------------------
 ;; settings
 ;; -----------------------------------------
-(setq inhibit-startup-message t)
-(set-default-font " -outline-Consolas-normal-normal-normal-mono-12-*-*-*-c-*-iso8859-1")
 (setq-default cursor-type 'bar)
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
 (setq recentf-max-menu-item 10)
 
 ;; (load-theme 'monokai 1)
+
+(setq-default c-default-style "linux")
