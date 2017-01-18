@@ -15,12 +15,18 @@
 (defvar ice/packages 
   '(;; --- Auto-completion ---
     company
-    monokai-theme
+    material-theme
     hungry-delete
     smartparens
     expand-region
     swiper
-    aggressive-indent    
+    aggressive-indent
+    json-mode
+    sr-speedbar
+    tabbar
+    powerline
+    helm
+    ggtags
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -75,6 +81,17 @@
 
 (global-aggressive-indent-mode 1)
 
+(setq-default indent-tabs-mode nil)
+
+(tabbar-mode 1)
+(sr-speedbar-open)
+
+;; (require 'helm-config)
+;; (helm-mode 1)
+
+(powerline-default-theme)
+;; (powerline-center-theme)
+
 ;; ------------------------------------------
 ;; function
 ;; ------------------------------------------
@@ -96,6 +113,9 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 
+(global-set-key [?\C-c ?\C-c] 'comment-or-uncomment-region)
+
+
 ;; ------------------------------------------
 ;; settings
 ;; -----------------------------------------
@@ -103,6 +123,27 @@
 (setq make-backup-files nil)
 (setq recentf-max-menu-item 10)
 
-;; (load-theme 'monokai 1)
+(load-theme 'material 1)
 
-(setq-default c-default-style "linux")
+;; (setq-default default-tab-width 4)
+;; (setq-default tab-width 4)
+;; (setq-default indent-tabs-mode t)
+;; (setq-default c-default-style "linux")
+;; (setq-default c-basic-offset 4)
+
+;; set c-mode hook for c-programming
+(defun my-c-mode-hook()
+  (c-set-style "linux")
+  (setq tab-width 4)
+  (setq indent-tabs-mode t)
+  (setq c-basic-offset 4)
+  (hs-minor-mode 1)
+  (ggtags-mode 1)
+  (if (and (buffer-file-name)
+           (string-match ".c$\\|.cpp$" (buffer-file-name)))
+      (hs-hide-all))
+  (define-key c-mode-base-map (kbd "C-o") 'hs-toggle-hiding)
+  (define-key c-mode-base-map [remap comment-region]
+    'comment-or-uncomment-region))
+
+(add-hook 'c-mode-hook 'my-c-mode-hook)
