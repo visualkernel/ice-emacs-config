@@ -152,3 +152,10 @@
 ;; slime for common lisp
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
+;; sr-speedbar
+(setq speedbar-use-images nil)
+(with-current-buffer sr-speedbar-buffer-name
+  (setq window-size-fixed 'width))
+
+;; maximize-window
+(toggle-frame-maximized)
