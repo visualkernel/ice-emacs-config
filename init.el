@@ -27,6 +27,7 @@
     powerline
     helm
     ggtags
+    slime
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -147,3 +148,7 @@
     'comment-or-uncomment-region))
 
 (add-hook 'c-mode-hook 'my-c-mode-hook)
+
+;; slime for common lisp
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
