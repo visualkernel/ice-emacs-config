@@ -28,6 +28,7 @@
     helm
     ggtags
     slime
+    haskell-mode
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -85,12 +86,12 @@
 (setq-default indent-tabs-mode nil)
 
 (tabbar-mode 1)
-(sr-speedbar-open)
+;; (sr-speedbar-open)
 
 ;; (require 'helm-config)
 ;; (helm-mode 1)
 
-(powerline-default-theme)
+;; (powerline-default-theme)
 ;; (powerline-center-theme)
 
 ;; ------------------------------------------
@@ -116,6 +117,8 @@
 
 (global-set-key [?\C-c ?\C-c] 'comment-or-uncomment-region)
 
+(global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+
 
 ;; ------------------------------------------
 ;; settings
@@ -124,7 +127,7 @@
 (setq make-backup-files nil)
 (setq recentf-max-menu-item 10)
 
-(load-theme 'material 1)
+;; (load-theme 'material 1)
 
 ;; (setq-default default-tab-width 4)
 ;; (setq-default tab-width 4)
@@ -153,9 +156,8 @@
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
 ;; sr-speedbar
-(setq speedbar-use-images nil)
-(with-current-buffer sr-speedbar-buffer-name
-  (setq window-size-fixed 'width))
+(setq speedbar-use-images nil
+      sr-speedbar-right-side nil)
 
 ;; maximize-window
 (toggle-frame-maximized)
