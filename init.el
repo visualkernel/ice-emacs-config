@@ -29,6 +29,8 @@
     ggtags
     slime
     haskell-mode
+    solarized-theme
+    leuven-theme
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -85,7 +87,7 @@
 
 (setq-default indent-tabs-mode nil)
 
-(tabbar-mode 1)
+;; (tabbar-mode 1)
 ;; (sr-speedbar-open)
 
 ;; (require 'helm-config)
@@ -123,11 +125,18 @@
 ;; ------------------------------------------
 ;; settings
 ;; -----------------------------------------
+;; (setq frame-title-format "%f")
+(setq frame-title-format
+      '(buffer-file-name "%f"
+                         (dired-directory dired-directory "%b")))
 (setq-default cursor-type 'bar)
 (setq make-backup-files nil)
 (setq recentf-max-menu-item 10)
 
-;; (load-theme 'material 1)
+;; (load-theme 'solarized-light t)
+;; (load-theme 'solarized-dark t)
+(load-theme 'zenburn t)
+;; (load-theme 'wombat t)
 
 ;; (setq-default default-tab-width 4)
 ;; (setq-default tab-width 4)
@@ -153,11 +162,11 @@
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 
 ;; slime for common lisp
-(setq inferior-lisp-program "/usr/bin/sbcl")
+;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
 ;; sr-speedbar
 (setq speedbar-use-images nil
       sr-speedbar-right-side nil)
 
 ;; maximize-window
-(toggle-frame-maximized)
+;; (toggle-frame-maximized)
