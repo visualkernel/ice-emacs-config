@@ -2,20 +2,20 @@
 ;; packages
 ;; ------------------------------------------
 (when (>= emacs-major-version 24)
-    (require 'package)
-    (package-initialize)
-    (add-to-list 'package-archives 
-		 '("melpa" . "http://melpa.org/packages/") 
-		 t))
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.org/packages/")
+               t))
 
 ;; cl - Common Lisp Extension
 (require 'cl)
 
 ;; Add Packages
-(defvar ice/packages 
+(defvar ice/packages
   '(;; --- Auto-completion ---
+    green-screen-theme
     company
-    material-theme
     hungry-delete
     smartparens
     expand-region
@@ -29,8 +29,6 @@
     ggtags
     slime
     haskell-mode
-    solarized-theme
-    leuven-theme
     ) "Default packages")
 
 (setq package-selected-packages ice/packages)
@@ -51,22 +49,28 @@
 ;; ------------------------------------------
 ;; mode
 ;; ------------------------------------------
-;; close toolbar
-(tool-bar-mode -1)
-;; close scrollbar
-(scroll-bar-mode -1)
-;; show line number
-(global-linum-mode 1)
-
+(savehist-mode 1)
+(tooltip-mode -1) ;; disable tooltip mode
+(tool-bar-mode -1) ;; close toolbar
+(menu-bar-mode -1) ;; close menu
+(scroll-bar-mode -1) ;; close scrollbar
+(global-linum-mode 1) ;; show line number
+(global-hl-line-mode 1)
+(set-face-attribute hl-line-face nil :underline nil) ;;remove underline when hl-line-mode enable
+(fset 'yes-or-no-p 'y-or-n-p) ;y/n=>yes/no
+(blink-cursor-mode -1) ;disable cursor blink
+(transient-mark-mode 1)
+(setq use-dialog-box nil) ;never pop dialog
+(setq inhibit-startup-screen t) ;inhibit start screen
+(setq initial-scratch-message "")
+(setq mouse-yank-at-point t)
+(setq default-major-mode 'text-mode)
+(setq-default indicate-empty-lines t)
+(setq-default show-trailing-whitespace t)
 (setq column-number-mode t)
 (setq line-number-mode t)
-
 (delete-selection-mode t)
-
-(global-hl-line-mode 1)
-
 (show-paren-mode t)
-
 (global-auto-revert-mode t)
 
 (require 'recentf)
@@ -121,10 +125,14 @@
 
 (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
 
-
 ;; ------------------------------------------
 ;; settings
 ;; -----------------------------------------
+
+;; theme settings
+;; (load-theme 'deeper-blue t)
+(load-theme 'green-screen t)
+
 ;; (setq frame-title-format "%f")
 (setq frame-title-format
       '(buffer-file-name "%f"
@@ -133,10 +141,8 @@
 (setq make-backup-files nil)
 (setq recentf-max-menu-item 10)
 
-;; (load-theme 'solarized-light t)
-;; (load-theme 'solarized-dark t)
-(load-theme 'zenburn t)
-;; (load-theme 'wombat t)
+;; font settings
+(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
 
 ;; (setq-default default-tab-width 4)
 ;; (setq-default tab-width 4)
@@ -169,4 +175,5 @@
       sr-speedbar-right-side nil)
 
 ;; maximize-window
-;; (toggle-frame-maximized)
+(toggle-frame-maximized)
+(put 'narrow-to-region 'disabled nil)
