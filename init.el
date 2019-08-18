@@ -29,3 +29,4 @@
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
 (load-theme 'wombat t)
+(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
