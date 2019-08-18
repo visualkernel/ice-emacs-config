@@ -27,3 +27,5 @@
 (setq initial-scratch-message "")
 
 (setq inferior-lisp-program "/usr/bin/sbcl")
+
+(load-theme 'wombat t)
