@@ -13,6 +13,6 @@ note: emacs25-common-non-dfsg package will install emacs core documents.
 
 ## tips
 
-show whitespace
+1. show whitespace
 
 M-x whitespace-mode
