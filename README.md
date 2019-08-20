@@ -10,3 +10,9 @@ note: emacs25-common-non-dfsg package will install emacs core documents.
 ## install configure
 
 ./install.sh
+
+## tips
+
+show whitespace
+
+M-x whitespace-mode
