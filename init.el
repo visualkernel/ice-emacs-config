@@ -1,18 +1,11 @@
-;; packages
+;; set packages site
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/")
 	     t)
 
-(defun install-pkg (pkg)
-  (unless (package-installed-p pkg)
-    (package-install pkg)))
-
-(install-pkg 'company)
-(install-pkg 'slime)
-
-
+;; base settings
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -21,12 +14,26 @@
 (setq line-number-mode t)
 (setq make-backup-files nil)
 (show-paren-mode t)
-(global-company-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
+(load-theme 'wombat t)
+;;(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
 
+;; install packages
+(defmacro install-pkg (pkg &rest body)
+  `(unless (package-installed-p ',pkg)
+     (package-install ',pkg)
+     ,@body))
+
+;; package: company
+(install-pkg company)
+(global-company-mode 1)
+
+;; package: slime
+(install-pkg slime)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
-(load-theme 'wombat t)
-(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+;; package: magit
+(install-pkg magit)
+
