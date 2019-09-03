@@ -37,3 +37,7 @@
 ;; package: magit
 (install-pkg magit)
 
+;; highlight-parenttheses
+(install-pkg highlight-parentheses)
+(add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+(add-hook 'lisp-mode-hook 'highlight-parentheses-mode)
