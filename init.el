@@ -19,10 +19,13 @@
 (setq initial-scratch-message "")
 (load-theme 'wombat t)
 ;;(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+(delete-selection-mode t)
 
 ;; install packages
 (defmacro install-pkg (pkg &rest body)
   `(unless (package-installed-p ',pkg)
+     (message "%s" "Refreshing package database...")
+     (package-refresh-contents)
      (package-install ',pkg)
      ,@body))
 
@@ -41,3 +44,7 @@
 (install-pkg highlight-parentheses)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
 (add-hook 'lisp-mode-hook 'highlight-parentheses-mode)
+
+;; hungry-delete
+(install-pkg hungry-delete)
+(global-hungry-delete-mode t)
