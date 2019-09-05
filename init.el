@@ -48,3 +48,8 @@
 ;; hungry-delete
 (install-pkg hungry-delete)
 (global-hungry-delete-mode t)
+
+;; swiper
+(install-pkg swiper)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
