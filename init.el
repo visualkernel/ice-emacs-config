@@ -17,7 +17,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
-(load-theme 'wombat t)
+;;(load-theme 'wombat t)
 ;;(set-default-font "-PfEd-DejaVu Sans Mono-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
 (delete-selection-mode t)
 
@@ -53,3 +53,17 @@
 (install-pkg swiper)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (swiper slime magit hungry-delete highlight-parentheses company))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
