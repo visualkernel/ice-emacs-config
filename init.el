@@ -53,3 +53,9 @@
 (install-pkg swiper)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+
+;; org-bullets
+(install-pkg org-bullets)
+(add-hook 'org-mode-hook 'org-bullets-mode)
+(setq org-src-fontify-natively t)
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
