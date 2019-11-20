@@ -53,26 +53,10 @@
 (install-pkg swiper)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-<<<<<<< HEAD
 
 ;; org-bullets
 (install-pkg org-bullets)
 (add-hook 'org-mode-hook 'org-bullets-mode)
 (setq org-src-fontify-natively t)
 (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-=======
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (swiper slime magit hungry-delete highlight-parentheses company))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
->>>>>>> 8e127153d822201749aeda4cdcaf754a75645f6e
+
